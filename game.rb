@@ -10,7 +10,7 @@ class Game
 
   def score
     @frames.each do |frame|
-      @score += frame.score
+      @score += frame.pins_down
     end
     @score
   end

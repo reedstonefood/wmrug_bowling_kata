@@ -1,12 +1,12 @@
 class Frame
   def initialize
     @rolls = 0
-    @score = 0
+    @pins_down = 0
   end
 
   def roll(pins)
     @rolls += 1
-    @score += pins
+    @pins_down += pins
   end
 
   def complete?
@@ -15,10 +15,10 @@ class Frame
   end
 
   def spare?
-    @score == 10
+    @pins_down == 10
   end
 
-  def score
-    @score
+  def pins_down
+    @pins_down
   end
 end

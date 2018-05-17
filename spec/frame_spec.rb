@@ -26,10 +26,10 @@ describe Frame do
     expect( subject.spare? ).to be true
   end
 
-  it "expects 2 rolls of 3 to score 6" do
+  it "expects 2 rolls of 3 to result in 6 pins down" do
     subject.roll(3)
     subject.roll(3)
-    expect( subject.score ).to be 6
+    expect( subject.pins_down ).to be 6
   end
 
 end
