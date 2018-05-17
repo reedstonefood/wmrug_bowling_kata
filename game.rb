@@ -1,10 +1,11 @@
 class Game
   def initialize
     @score = 0
-    @frames = generate_frames
+    @frames = [Frame.new]
   end
 
   def roll(pins)
+    @frames << Frame.new if @frames.last.complete?
     current_frame.roll(pins)
   end
 
@@ -23,8 +24,10 @@ class Game
   end
 
   def current_frame
-    @frames.find do |frame|
-      !frame.complete?
-    end
+    @frames.last
+  end
+
+  def previous_frame
+    @frames[@frames.count-1]
   end
 end

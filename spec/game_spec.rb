@@ -13,7 +13,7 @@ describe Game do
     expect(subject.score).to be 20
   end
 
-  xit "should know how to calculate a spare" do
+  it "should know how to calculate a spare" do
     roll_many(3, 5)
     roll_many(17, 0)
 
