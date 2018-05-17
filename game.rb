@@ -5,13 +5,16 @@ class Game
   end
 
   def roll(pins)
-    @frames << Frame.new if @frames.last.complete?
+    if current_frame.complete?
+      process_frame
+      @frames << Frame.new 
+    end
     current_frame.roll(pins)
   end
 
   def score
     @frames.each do |frame|
-      @score += frame.pins_down
+      @score += frame.score
     end
     @score
   end
@@ -22,12 +25,20 @@ class Game
       Frame.new
     end
   end
+  
+  def process_frame
+    if current_frame != @frames.first
+      if previous_frame.spare?
+        previous_frame.bonus = current_frame.first_roll 
+      end
+    end
+  end
 
   def current_frame
     @frames.last
   end
 
   def previous_frame
-    @frames[@frames.count-1]
+    @frames[-2]
   end
 end
