@@ -2,18 +2,16 @@ class Frame
   attr_accessor :bonus
 
   def initialize
-    @rolls = 0
     @pins_down = []
     @bonus = 0
   end
 
   def roll(pins)
-    @rolls += 1
     @pins_down << pins
   end
 
   def complete?
-    return true if @rolls == 2
+    return true if @pins_down.count == 2
     false
   end
 

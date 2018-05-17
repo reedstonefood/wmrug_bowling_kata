@@ -19,13 +19,7 @@ class Game
     @score
   end
 
-  private
-  def generate_frames
-    10.times.map do
-      Frame.new
-    end
-  end
-  
+  private  
   def process_frame
     if current_frame != @frames.first
       if previous_frame.spare?
